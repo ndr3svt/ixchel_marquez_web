@@ -80,33 +80,23 @@ h1{
 	font-size:120px;
 	line-height: 120px;
 }
-#eMail{
-	position: absolute;
-	bottom: 0;
-	left: 0;
+
+a{
+	position:absolute;
+	z-index: 10;
+	text-align: center;
 	width: 100%;
-	height: 100px;
-}
-#eMail a{
-	position: absolute;
-	/* background-color: #fff; */
-	font-family: "akkuratstd-bold";
-	top: calc(100% - 500px);
+	top:50%;
 	left: 50%;
+	transform: translate(-50%,-50%);
+	font-family: "akkuratstd-bold";
 	color: #00ff55;
 	border-radius: 5px;
-	width:auto;
-	height:30px;
-	z-index: 20;
-	transform: translate(-50%,0%);
-	margin:0;
 	text-decoration: none;
-	padding: 10px;
 	font-size:18px;
-	line-height: 30px;
 	transition: color 0.2s;
 }
-#eMail a#ig{
+a#ig{
 	position: absolute;
 	background-color: #fff;
 	top: calc(100% - 430px);
@@ -124,14 +114,11 @@ h1{
 	line-height: 30px;
 	transition: color 0.2s;
 }
-#eMail a:hover{
+a:hover{
 	color: #ff0099;
 	/*cursor: none;*/
 }
-#eMail a#ig:hover{
-	color: #ff0099;
-	/*cursor: none;*/
-}
+
 #fakeConsole{
 	position: absolute;
 }

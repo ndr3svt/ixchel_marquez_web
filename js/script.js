@@ -9,6 +9,7 @@ var finger = [
 var waterModel;
 var waterCanvas;
 var imgURL="";
+var count =0
 
 $( document ).ready(function() {
     var imgIndex=Math.floor(Math.random() * 15);
@@ -19,6 +20,10 @@ $( document ).ready(function() {
     checkKeyPressed();
     onTouchRipple();
 	waterModel.setInterpolation(true);
+
+	window.addEventListener("resize", (event) => {
+		handleResize()
+	});
 });
 
 var mDown=true;
@@ -31,7 +36,6 @@ function moveFinger(){
 	$(document).mouseup(function() {
 		if(mDown){
 			mDown=false;
-			reInit();
 		}
 	});
   	$( document).mousemove(function( e ){
@@ -55,7 +59,7 @@ function init(){
 		width = Math.ceil($(window).width()/2);
 	}
 	else{
-		width = Math.ceil($(window).width()/1.5);
+		width = Math.ceil($(window).width()/1);
 	}
 	
 	
@@ -64,9 +68,9 @@ function init(){
 	/* deprecated calculation, keep for reference */
 	// height = Math.ceil($(window).height()/2);
 	height = Math.trunc(height);
-	
+	if(windowWidth<800){
 	 waterModel = new WaterModel(width, height, {
-			resolution:(width/34),
+			resolution:(width/50),
 			interpolate:false,
 			damping:0.98,
 			clipping:5,
@@ -74,6 +78,17 @@ function init(){
 			maxFps:60,
 			showStats:false
 		});
+	}else{
+		waterModel = new WaterModel(width, height, {
+			resolution:(width/38),
+			interpolate:false,
+			damping:0.98,
+			clipping:5,
+			evolveThreshold:0.015,
+			maxFps:60,
+			showStats:false
+		});
+	}
 	 waterCanvas = new WaterCanvas(width-20, height-20,
 		"waterHolder", waterModel, {
 			backgroundImageUrl:imgURL,
@@ -93,16 +108,20 @@ function init(){
 		waterHolder.style.height = '120%'
 		waterHolder.style.width = `${waterHolder.offsetHeight*ratio}px`
 	}
-	
-
 }
-var inT=-1;
-function reInit(){
-	inT=inT*(-1);
-	if(inT>0){
-		// waterModel.setInterpolation(true);
+
+
+function handleResize(){
+	let windowWidth = window.innerWidth
+	let windowHeight = window.innerHeight
+	let ratio = 820/1024
+	let waterHolder = document.querySelector('#waterHolder')
+	if(windowWidth > windowHeight){
+		waterHolder.style.width = '120%'
+		waterHolder.style.height = `${waterHolder.offsetWidth/ratio}px`
 	}else{
-		// waterModel.setInterpolation(false);
+		waterHolder.style.height = '120%'
+		waterHolder.style.width = `${waterHolder.offsetHeight*ratio}px`
 	}
 }
 function checkKeyPressed(){
@@ -142,42 +161,11 @@ function onTouchRipple(){
     function (e){
       var touchY = e.changedTouches[0].clientY ;
       var touchX = e.changedTouches[0].clientX ;
-      reInit();
 
       }
     );
 }
 
-var isMobile=false;
-
-function checkMobileVerticality(){
-    if($(window).width()< $(window).height()){
-
-      if($(window).width()<=750){ // THIS CONDITION IS FOR MOBILE
-
-
-        $(".on-horizontal-mobile").css("height", "0%");
-        $(".on-horizontal-mobile h1.menu-title").css("opacity","0");
-        isMobile=false;
-      }
-    }else{
-
-      if($(window).height()<=750){
-        if (/Mobi/.test(navigator.userAgent)) {
-          isMobile=true;
-
-          
-          $(".on-horizontal-mobile").css("height", "100%");
-          $(".on-horizontal-mobile h1.menu-title").css("opacity","1");
-        }
-      }else{
-        isMobile=false;
-          $(".on-horizontal-mobile").css("height", "0%");
-          $(".on-horizontal-mobile h1.menu-title").css("opacity","0");
-
-      }
-    }
-}
 
 
 

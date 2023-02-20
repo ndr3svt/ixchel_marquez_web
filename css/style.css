@@ -1,0 +1,191 @@
+body,html{
+	position: absolute;
+	left: 0;
+	margin:0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	/*cursor: none;*/
+}
+
+
+html,
+body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+}
+
+@font-face {
+  font-family: "akkuratstd-lightitalic";
+  src: url('../fonts/akkurat/ttf/akkuratstd-lightitalic.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "akkuratstd-bold";
+  src: url('../fonts/akkurat/ttf/akkuratstd-bold.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "akkuratstd-light";
+  src: url('../fonts/akkurat/ttf/akkuratstd-light.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "akkuratstd";
+  src: url('../fonts/akkurat/ttf/akkuratstd.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  font-family: akkuratstd-light;
+}
+
+
+h1{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: auto;height: auto;z-index: 2;
+	margin:0;
+	padding: 0;
+	font-size:120px;
+	line-height: 120px;
+}
+#eMail{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+}
+#eMail a{
+	position: absolute;
+	top: calc(100% - 100px);
+	left: 50%;
+	color: #000;
+	width:auto;
+	height:100px;
+	z-index: 20;
+	transform: translate(-50%,0%);
+	margin:0;
+	text-decoration: none;
+	padding: 0;
+	font-size:28px;
+	line-height: 38px;
+	transition: color 0.2s;
+}
+#eMail a:hover{
+	color: #00ff55;
+	/*cursor: none;*/
+}
+#fakeConsole{
+	position: absolute;
+}
+#waterHolder{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+
+  	overflow: hidden;
+  	mix-blend-mode: multiply;
+  	z-index: 2;
+
+}
+canvas{
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	/*background-size: 20px auto;*/
+	background-color: #000;
+
+}
+img.hausAmMehr{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 0;
+	transform: translate(-50%,-50%);
+	mix-blend-mode: multiply;
+	width: 50%;
+	height: auto;
+	min-width:300px;
+	max-width: 800px;
+
+
+}
+
+#customCursor{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 40px;
+	height: 50px;
+	background-image: url('../images/metalcursor.png');
+	background-size: cover;
+	z-index: 100;
+	display: none;
+	
+
+}
+
+/* for mobile device horizontal position */
+
+
+/*.on-horizontal-mobile {
+z-index: 100;
+position: absolute;
+
+top: 0;
+left: 0;
+width: 100%;
+height: 0%;
+overflow: hidden;
+background-color: #000000;
+}
+
+.on-horizontal-mobile h1.menu-title {
+position: absolute;
+font-family: faro_fleischmann !important;
+font-size: 18px;
+z-index: 101;
+width: 100%;
+height: auto;
+top: calc(100% - 100px);
+left: 50%;
+text-align: center;
+transform: translate(-50%, 0);
+opacity: 0;
+color:#ffffff !important;
+}*/

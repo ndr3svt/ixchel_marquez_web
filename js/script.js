@@ -49,9 +49,12 @@ function init(){
 	let windowHeight = window.innerHeight
 	let ratio = 820/1024
 	/* rule to reduce the resolution for bigger screens */
-	if(windowWidth> 800){
-		width = Math.ceil($(window).width()/3.5);
-	}else{
+	if(windowWidth> 1200){
+		width = Math.ceil($(window).width()/2.5);
+	}else if(windowWidth> 800){
+		width = Math.ceil($(window).width()/2);
+	}
+	else{
 		width = Math.ceil($(window).width()/1.5);
 	}
 	
@@ -84,11 +87,11 @@ function init(){
 	/* rules for ratio */
 	let waterHolder = document.querySelector('#waterHolder')
 	if(windowWidth > windowHeight){
-		waterHolder.style.width = '100%'
-		waterHolder.style.height = `${windowWidth/ratio}px`
+		waterHolder.style.width = '120%'
+		waterHolder.style.height = `${waterHolder.offsetWidth/ratio}px`
 	}else{
-		waterHolder.style.height = '100%'
-		waterHolder.style.width = `${windowHeight*ratio}px`
+		waterHolder.style.height = '120%'
+		waterHolder.style.width = `${waterHolder.offsetHeight*ratio}px`
 	}
 	
 
